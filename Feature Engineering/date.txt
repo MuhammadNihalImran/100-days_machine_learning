@@ -1,0 +1,15 @@
+
+
+   1) Feature Engineering:
+              feature engineering is the process of using domain knowledge to extract
+              feature from raw data.
+              . feature transformation (missing Value, handling categrical,outlier detection,feature Scaling)
+              . feature Constraction
+              . feature Selection
+              . feature Extraction
+
+     .feature Scaling:
+           It is a technique to standardize the independent feature present in the data in a fixed range 
+           like 100 and 10 ko 1 and -1 ki bich value mein change kr dena beacuse large difference in 100 and 10
+       a) standardization 
+            also called Z-score Normalization
