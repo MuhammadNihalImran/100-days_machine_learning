@@ -42,3 +42,16 @@ Where:
 - Estimating house prices from square footage.
 - Forecasting temperature from time of year.
 
+---
+
+## 💻 Example Python Code
+```python
+from sklearn.linear_model import LinearRegression
+
+# Train model
+ls = LinearRegression()
+ls.fit(x_train, y_train)
+
+# Predict
+predictions = ls.predict(x_test)
+print(predictions)
