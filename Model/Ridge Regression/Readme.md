@@ -41,7 +41,7 @@ Where:
 ---
 
 ## 🖼 Visualization
-![Ridge Regression vs Linear Regression](https://upload.wikimedia.org/wikipedia/commons/0/0c/Ridge_regression.png)
+![Ridge Regression vs Linear Regression](https://i.sstatic.net/s71QZ.png)
 
 ---
 
