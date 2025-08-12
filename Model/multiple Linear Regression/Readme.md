@@ -35,7 +35,8 @@ A scatter plot works for one variable, but for multiple variables, we often use:
 - **Predicted vs Actual line plots**  
 
 **Example 3D plot:**  
-![Multiple Linear Regression 3D Plot](https://upload.wikimedia.org/wikipedia/commons/2/2d/Linear_regression.svg)
+![Multiple Linear Regression 3D Plot](<img width="458" height="395" alt="image" src="https://github.com/user-attachments/assets/6b5fe13c-d7a3-48ab-a65f-cff90c3855a2" />
+)
 
 ## Steps
 1. Collect labeled data with multiple features.
