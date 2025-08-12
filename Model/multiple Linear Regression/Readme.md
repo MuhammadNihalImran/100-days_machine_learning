@@ -34,7 +34,7 @@ Where:
 - 📊 **Predicted vs Actual** line plots for performance.
 
 **Example 3D plot:**  
-![Multiple Linear Regression 3D Plot](https://upload.wikimedia.org/wikipedia/commons/2/2d/Linear_regression.svg)
+![Multiple Linear Regression 3D Plot]([https://upload.wikimedia.org/wikipedia/commons/2/2d/Linear_regression.svg](https://media.geeksforgeeks.org/wp-content/uploads/20231016151131/ezgifcom-optimize-(5).gif))
 
 ---
 
