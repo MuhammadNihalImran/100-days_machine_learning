@@ -8,6 +8,125 @@ Machine Learning (ML) is a method of teaching computers to:
 
 ---
 
+## 📌 Types of ML Problems
+
+### **1. Binary Classification**  
+Predict one of two possible categories: **0 or 1, Yes or No, True or False**  
+**Example:** Predict if a patient has heart disease (Yes/No).
+
+### **2. Multi-Class Classification**  
+Predict one of more than two categories.  
+**Example:** What type of animal is this? (**Cat, Dog, Horse**)
+
+### **3. Regression**  
+Predict a continuous numerical value.  
+**Example:** Predict the selling price of a house.
+
+### **4. Multi-Label Classification**  
+Predict multiple binary labels for each instance.  
+**Example:** Predict which genres apply to a movie (**Action, Comedy, Thriller, Drama**).
+
+### **5. Clustering**  
+Group similar items together without labeled targets (**Unsupervised Learning**).  
+**Example:** Group customers by spending behavior.
+
+### **6. Anomaly Detection**  
+Find unusual data points that do not fit normal patterns.  
+**Example:** Detect credit card fraud.
+
+### **7. Time Series Forecasting**  
+Predict values over time.  
+**Example:** Forecast stock prices or electricity usage over days/weeks/months.
+
+---
+
+## ❤️ Example: Heart Dataset
+
+- **Type:** Supervised Learning  
+- **Problem:** Binary Classification  
+- **Goal:** Predict Target (1: Disease, 0: No Disease)  
+- **X (Features):** Age, Thal, Cholesterol, CPType, MaxHR, etc.  
+- **Y (Label):** Target column (0 or 1)  
+
+---
+
+## 🛠 ML Pipeline
+
+1. **Data (Dataset)** – Gather data  
+2. **EDA** – Explore shape, missing values, outliers, distribution  
+3. **Cleaning** – Fix datatypes, encode categories  
+4. **Feature Engineering** – Create new features  
+5. **Split** – Separate Features (X) and Target (y)  
+6. **Model** – Train using ML algorithms  
+7. **Evaluate** – Accuracy, precision, recall, confusion matrix  
+
+---
+
+## 📂 Types of Learning
+
+| Learning Type     | Data Used                  | Goal Example                        |
+|-------------------|----------------------------|--------------------------------------|
+| Supervised        | Labeled data               | Predict disease (Yes/No)             |
+| Unsupervised      | Unlabeled data             | Customer segmentation                |
+| Reinforcement     | Rewards from environment   | Game AI, robot navigation            |
+
+---
+
+## 📊 Structured vs. Unstructured Data
+
+- **Structured:** Tabular format (CSV, SQL Tables)  
+- **Unstructured:** Text, images, videos  
+
+---
+
+## 🧪 Train / Test / Validation
+
+- **Training Set:** Used to train the model  
+- **Testing Set:** Used to evaluate performance  
+- **Validation Set (Optional):** Used for tuning (hyperparameters)  
+
+---
+
+## 📈 Basic Probability & Statistics
+
+- **Mean, Median, Mode, Standard Deviation**  
+- **Probability:**  
+  \[
+  P(disease) = \frac{20}{100} = 0.20 \text{ or } 20\%
+  \]  
+- **Conditional Probability:**  
+  \[
+  P(disease \mid ChestPain=Yes)
+  \]  
+- **Distributions:** Normal, skewed  
+
+---
+
+## 📉 Standard Deviation (Spread of Data)
+
+- **Low Std Dev:** Data tightly packed  
+- **High Std Dev:** Data spread out  
+
+Example:  
+- Group A: [150, 151, 149, 150, 150] → Low spread  
+- Group B: [100, 200, 150, 180, 120] → High spread  
+
+---
+
+## 🔗 Correlation vs Causation
+
+- **Correlation:** Measures relationship (-1 to +1). Example: High cholesterol correlated with heart disease.  
+- **Causation:** One variable directly affects another. Example: Smoking causes lung damage.  
+
+---
+
+## ⚖ Bias & Variance
+
+- **Bias:** Error due to overly simplistic assumptions → **Underfitting** (High training & test error)  
+- **Variance:** Error due to model sensitivity to fluctuations → **Overfitting** (Low training error, high test error)  
+
+---
+
 ## 📂 Types of Machine Learning
 
 | Type           | Learns From                | Output Type              | Example                              |
@@ -20,84 +139,56 @@ Machine Learning (ML) is a method of teaching computers to:
 
 ## 🗝 Key Terms
 
-- **Feature (X):** An input variable (e.g., age, cholesterol)  
-- **Label / Target (Y):** What we want to predict (e.g., heart disease = 1 or 0)  
-- **Model:** A mathematical function that maps `X → Y`  
-- **Training:** Teaching the model by feeding it data  
-- **Prediction:** Using the model on new data to guess `Y`  
-- **Loss Function:** Measures how wrong the model's predictions are  
-- **Optimizer:** Method to reduce the loss and improve the model  
-- **Evaluation:** Checking model performance (accuracy, precision, etc.)  
-
----
-
-## 🛠 Machine Learning Process (Pipeline)
-
-1. **Understand the Problem**  
-2. **Collect / Load Data**  
-3. **Explore & Clean Data**  
-4. **Feature Engineering**  
-5. **Split Data:** Train/Test (e.g., 70/30 split)  
-6. **Train Model:** (e.g., Logistic Regression)  
-7. **Evaluate Model:** Accuracy, Precision, Confusion Matrix  
-8. **Deploy or Improve:** Use in real world or enhance accuracy  
+- **Feature (X):** Input variable (e.g., age, cholesterol)  
+- **Label / Target (Y):** Output variable to predict  
+- **Model:** Function mapping `X → Y`  
+- **Training:** Learning patterns from data  
+- **Prediction:** Applying model to unseen data  
+- **Loss Function:** How wrong predictions are  
+- **Optimizer:** Method to minimize loss  
+- **Evaluation:** Assess performance (accuracy, precision, etc.)  
 
 ---
 
 ## 📏 Performance Metrics
 
-- **Accuracy:** % of correct predictions  
-- **Precision:** How many predicted positives were actually correct  
-- **Recall:** How many actual positives were detected  
-- **F1-Score:** Harmonic mean of Precision and Recall  
-
+- **Accuracy:** % correct predictions  
+- **Precision:** % predicted positives that are correct  
+- **Recall:** % actual positives caught  
+- **F1-Score:** Harmonic mean of Precision & Recall  
 \[
-\text{Harmonic Mean} = \frac{2 \times P \times R}{P + R}
+F1 = \frac{2 \times P \times R}{P + R}
 \]
-
-**Example:**  
-- Point A → B : 60 km/h  
-- Point B → A : 40 km/h  
 
 ---
 
 ## 📊 Confusion Matrix
 
-| Patient | Actual | Predicted | What Happened |
-|---------|--------|-----------|---------------|
+| Patient | Actual | Predicted | Outcome          |
+|---------|--------|-----------|------------------|
 | A       | 1      | 1         | TP (True Positive) |
 | B       | 0      | 0         | TN (True Negative) |
 | C       | 1      | 0         | FN (False Negative) |
 | D       | 0      | 1         | FP (False Positive) |
 
-**Summary Table:**
-
-| Actual | Predicted | Term |
-|--------|-----------|------|
-| 1      | 1         | TP   |
-| 1      | 0         | FN   |
-| 0      | 0         | TN   |
-| 0      | 1         | FP   |
-
 ---
 
 ## 📬 Email Filtering AI Example
 
-- AI marked **10 emails** as spam  
-- Actually, **6** of them were truly spam  
-- **4 emails** were wrongly marked as spam  
+- **AI Prediction:** 10 emails marked as spam  
+- **Actually Spam:** 6 of them  
+- **Wrongly Marked Spam:** 4 emails  
 
 \[
-\text{Precision} = \frac{TP}{TP + FP} = \frac{6}{10} = 60\%
+\text{Precision} = \frac{6}{10} = 60\%
 \]  
-
 \[
-\text{Recall} = \frac{TP}{TP + FN} = \frac{6}{10} = 60\%
+\text{Recall} = \frac{6}{10} = 60\%
 \]  
 
 ---
 
 💡 **Conclusion:**  
-Machine learning enables computers to learn from data, find patterns, and make predictions with minimal human intervention. By understanding the types, processes, and metrics, we can build better and more accurate models.
+Machine Learning combines statistics, algorithms, and computing to make predictions and find patterns in data. By understanding types, processes, and metrics, we can build effective models for real-world problems.
 
 ---
