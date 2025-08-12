@@ -10,13 +10,13 @@ Predict a continuous numerical value based on two or more input variables.
 
 ## Formula
 \[
-y = b_0 + b_1x_1 + b_2x_2 + \dots + b_nx_n
+y = b0 + b1x1 + b2x2 + ... + bnxn
 \]
 Where:  
 - \( y \) = Predicted output  
-- \( x_1, x_2, \dots, x_n \) = Input features  
-- \( b_0 \) = Intercept (bias)  
-- \( b_1, b_2, \dots, b_n \) = Coefficients (weights)
+- \( x1, x2,..., xn \) = Input features  
+- \( b0 \) = Intercept (bias)  
+- \( b1, b2,.., b_n \) = Coefficients (weights)
 
 ## Example Dataset
 
