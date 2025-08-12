@@ -1,38 +1,39 @@
-# Supervised Learning
+# Machine Learning Types
 
-Supervised Learning is a type of Machine Learning where the model is trained on labeled data—each input has a corresponding correct output.
+## 1. Supervised Learning
+- **Data:** Labeled (X + Y)
+- **Goal:** Predict known outputs
 
-## Types of Supervised Learning
+### Types:
+1. **Regression** – Predict continuous values  
+   - Algorithms: Linear Regression, Polynomial Regression, Ridge, Lasso, SVR, Decision Tree Regression, Random Forest Regression
+2. **Classification** – Predict discrete categories  
+   - Algorithms: Logistic Regression, KNN, SVM, Decision Tree Classification, Random Forest Classification, Naive Bayes, Gradient Boosting (XGBoost, LightGBM, CatBoost)
 
-### 1. Regression
-- **Goal:** Predict continuous numerical values.
-- **Examples:** Predicting house prices, temperature forecasting.
-- **Common Algorithms:**
-  - Linear Regression
-  - Polynomial Regression
-  - Ridge Regression
-  - Lasso Regression
-  - Support Vector Regression (SVR)
-  - Decision Trees (Regression)
-  - Random Forest Regression
+---
 
-### 2. Classification
-- **Goal:** Predict discrete categories or labels.
-- **Examples:** Email spam detection, disease diagnosis.
-- **Common Algorithms:**
-  - Logistic Regression
-  - K-Nearest Neighbors (KNN)
-  - Support Vector Machines (SVM)
-  - Decision Trees (Classification)
-  - Random Forest Classification
-  - Naive Bayes
-  - Gradient Boosting (XGBoost, LightGBM, CatBoost)
+## 2. Unsupervised Learning
+- **Data:** Unlabeled (X only)
+- **Goal:** Discover hidden patterns
 
-## Workflow
-1. Collect and prepare labeled dataset.
-2. Split into training and test sets.
-3. Train the model on training data.
-4. Evaluate performance on test data.
-5. Optimize using tuning and validation.
+### Types:
+1. **Clustering** – Group similar data points  
+   - Algorithms: K-Means, Hierarchical Clustering, DBSCAN, Gaussian Mixture Models
+2. **Dimensionality Reduction** – Reduce features while preserving information  
+   - Algorithms: PCA, t-SNE, UMAP, LDA
+3. **Association Rule Learning** – Find relationships between variables  
+   - Algorithms: Apriori, Eclat, FP-Growth
+
+---
+
+## 3. Reinforcement Learning
+- **Data:** Feedback from environment (rewards/penalties)
+- **Goal:** Learn optimal actions by trial and error
+
+### Types:
+1. **Model-Free RL**
+   - Algorithms: Q-Learning, SARSA, Deep Q-Networks (DQN)
+2. **Model-Based RL**
+   - Algorithms: Monte Carlo Tree Search, Policy Gradient Methods (REINFORCE, PPO, A3C)
 
 ---
