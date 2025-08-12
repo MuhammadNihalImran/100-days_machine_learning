@@ -41,7 +41,8 @@ Where:
 - **Polynomial Regression** fits a curve to capture non-linear patterns.
 
 **Example Plot:**  
-![Linear vs Polynomial Regression]([ec0edd03-3b59-4861-a7ed-a2b102ba91a5.png](https://media.geeksforgeeks.org/wp-content/uploads/20240614192441/Linear-Regression-vs-Polynomial-Regression.webp))
+![Linear vs Polynomial Regression](https://media.geeksforgeeks.org/wp-content/uploads/20240614192441/Linear-Regression-vs-Polynomial-Regression.webp)
+
 
 ## Steps
 1. Collect labeled data.
