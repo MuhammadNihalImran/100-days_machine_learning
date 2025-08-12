@@ -28,22 +28,39 @@ Where:
 | 1875      | 4             | 6                   | 308,000     |
 | 1100      | 2             | 7                   | 199,000     |
 
-## Visualization
-A scatter plot works for one variable, but for multiple variables, we often use:
-- **3D scatter plots** (for 2 features)
-- **Pair plots** (matrix of scatter plots for all features)
-- **Predicted vs Actual line plots**  
+## 📊 Visualization
+- 📈 **3D scatter plot** for 2 features.  
+- 🔍 **Pair plots** for many features.  
+- 📊 **Predicted vs Actual** line plots for performance.
 
 **Example 3D plot:**  
-![Multiple Linear Regression 3D Plot](6854569c-ad1d-4a7a-84f5-d256b13a778a.png)
+![Multiple Linear Regression 3D Plot](https://upload.wikimedia.org/wikipedia/commons/2/2d/Linear_regression.svg)
 
-## Steps
-1. Collect labeled data with multiple features.
-2. Fit the regression model to find the best coefficients \(b_0, b_1, ..., b_n\).
-3. Use the model to predict new outputs.
-4. Evaluate using metrics like MAE, MSE, R².
+---
 
-## Common Use Cases
-- House price prediction.
-- Predicting student performance from study time, attendance, and previous scores.
-- Forecasting sales from advertising spend across multiple channels.
+## 🛠 Steps to Implement
+1. 📥 Collect **labeled data** with multiple features.
+2. ⚙️ Fit the **regression model** to find the best coefficients \( b_0, b_1, ..., b_n \).
+3. 📈 Predict new outputs using the trained model.
+4. 📏 Evaluate performance using **MAE**, **MSE**, and **R²**.
+
+---
+
+## 💡 Common Use Cases
+- 🏡 House price prediction.  
+- 🎓 Predicting student performance from study time, attendance, and scores.  
+- 🛒 Forecasting sales from advertising spend across channels.  
+
+---
+
+## 💻 Example Python Code
+```python
+from sklearn.linear_model import LinearRegression
+
+# Train model
+ls = LinearRegression()
+ls.fit(x_train, y_train)
+
+# Predict
+predictions = ls.predict(x_test)
+print(predictions)
