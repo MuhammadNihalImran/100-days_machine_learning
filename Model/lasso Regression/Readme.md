@@ -16,21 +16,23 @@ It not only prevents overfitting but can also **perform feature selection** by s
 ### ⚙ How does it work?
 Lasso Regression modifies the Linear Regression loss function by adding an **L1 penalty term**:
 
-#### Standard Linear Regression Loss:
-\[
+**Standard Linear Regression Loss:**
+$$
 \text{Loss} = \sum (y_i - \hat{y}_i)^2
-\]
+$$
 
-#### Lasso Regression Loss:
-\[
+**Lasso Regression Loss:**
+$$
 \text{Loss} = \sum (y_i - \hat{y}_i)^2 + \lambda \sum |\beta_j|
-\]
+$$
 
-Where:  
-- **λ (lambda)** → Regularization strength (controls penalty size)  
-- **βᵢ** → Model coefficients  
-- Large **λ** → More penalty → More coefficients shrink to zero (stronger feature selection)  
-- Small **λ** → Acts like Linear Regression  
+Where:
+- **$\lambda$ (lambda)** → Regularization strength (controls penalty size)  
+- **$\beta_j$** → Model coefficients  
+
+**Key Points:**
+- Large $\lambda$ → More penalty → More coefficients shrink to zero (**stronger feature selection**)  
+- Small $\lambda$ → Acts like **Linear Regression**  
 
 ---
 
