@@ -10,7 +10,7 @@ Predict a continuous numerical value based on one input variable.
 
 ## Formula
 \[
-y = m \cdot x + b
+y = m.x + b
 \]
 Where:  
 - \( y \) = Predicted output  
