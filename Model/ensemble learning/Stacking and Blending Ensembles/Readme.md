@@ -1,95 +1,91 @@
 # 📚 Stacking (Ensemble Learning)
 
-## 📖 Overview
-**Stacking** (Stacked Generalization) is an **ensemble learning** technique that combines multiple base models (level-0) through a meta-model (level-1) to improve predictive performance.
-
-The idea:
-- Train **several base models** on the training data.
-- Use their predictions as input features for a **meta-model**.
-- The meta-model learns to best combine these predictions.
+## 📌 Overview
+Stacking is an ensemble learning technique that combines multiple base models (**level-0 learners**) and uses a **meta-model** (**level-1 learner**) to make the final prediction.
 
 ---
 
-## ⚙ How Does It Work?
+## ⚙️ How It Works
 
-### Step 1: Train Base Models (Level-0)
-We fit multiple algorithms (e.g., Decision Tree, Logistic Regression, SVM) on the training dataset.
-
-### Step 2: Generate Predictions
-Predictions from the base models are used as **new features**.
-
-### Step 3: Train Meta-Model (Level-1)
-A meta-learner (e.g., Logistic Regression) is trained on these predictions to make the final decision.
+1. **Train base models** on the training dataset.
+2. **Generate predictions** from base models.
+3. Use these predictions as **features** for the meta-model.
+4. **Train meta-model** to make the final prediction.
 
 ---
 
-## 📊 Mathematical Representation
+## 📐 Mathematical Representation
 
-Let:
-- \( h_1, h_2, \dots, h_k \) be **k base learners**
-- \( x \) be the input features
+Given:
+- Base learners: $h_1(x), h_2(x), \dots, h_k(x)$  
+- Meta learner: $H_M$
 
-1. **Base Models Predictions**:
-\[
-p_j = h_j(x) \quad \text{for} \quad j = 1, 2, \dots, k
-\]
+**Step 1:** Predictions from base learners:
+$$
+z_j = h_j(x), \quad j = 1, 2, \dots, k
+$$
 
-2. **Meta-Model Prediction**:
-\[
-\hat{y} = H(p_1, p_2, \dots, p_k)
-\]
-where \( H \) is the meta-learner.
-
----
-
-## 🛠 Hyperparameters
-
-### Base Models:
-- **Choice of algorithms** (e.g., Decision Tree, Random Forest, Logistic Regression)
-- **Individual hyperparameters** for each base model
-
-### Meta-Model:
-- **Choice of algorithm**
-- **Regularization parameters** (if applicable)
-
-### General:
-- `cv` → Number of folds for cross-validation when generating meta-features
-- `n_jobs` → Parallel processing for faster computation
+**Step 2:** Meta-model combines these:
+$$
+\hat{y} = H_M(z_1, z_2, \dots, z_k)
+$$
 
 ---
 
-## 🖥 Example (Scikit-learn)
+## 🛠️ Example (Classification)
+
 ```python
-from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import StackingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
 
-# Load dataset
+# Load data
 X, y = load_iris(return_X_y=True)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
-# Define base models
-base_estimators = [
-    ('dt', DecisionTreeClassifier(max_depth=3)),
-    ('svm', SVC(probability=True, kernel='linear'))
+# Base learners
+base_learners = [
+    ('dt', DecisionTreeClassifier(max_depth=5, random_state=42)),
+    ('svc', SVC(probability=True, random_state=42))
 ]
 
-# Define meta-model
-meta_model = LogisticRegression()
+# Meta learner
+meta_learner = LogisticRegression()
 
-# Create stacking model
-stack_clf = StackingClassifier(
-    estimators=base_estimators,
-    final_estimator=meta_model,
-    cv=5
-)
-
-# Train
+# Stacking Classifier
+stack_clf = StackingClassifier(estimators=base_learners, final_estimator=meta_learner)
 stack_clf.fit(X_train, y_train)
 
-# Evaluate
-score = stack_clf.score(X_test, y_test)
-print(f"Stacking Accuracy: {score:.4f}")
+print("Accuracy:", stack_clf.score(X_test, y_test))
+
+
+
+
+from sklearn.ensemble import StackingRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.svm import SVR
+from sklearn.datasets import load_diabetes
+from sklearn.model_selection import train_test_split
+
+# Load data
+X, y = load_diabetes(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
+
+# Base learners
+base_learners = [
+    ('dt', DecisionTreeRegressor(max_depth=5, random_state=42)),
+    ('svr', SVR())
+]
+
+# Meta learner
+meta_learner = LinearRegression()
+
+# Stacking Regressor
+stack_reg = StackingRegressor(estimators=base_learners, final_estimator=meta_learner)
+stack_reg.fit(X_train, y_train)
+
+print("R² Score:", stack_reg.score(X_test, y_test))
