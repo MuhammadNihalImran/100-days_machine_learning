@@ -1,92 +1,71 @@
-# 🌳 Decision Tree: Classification & Regression
+# 🌳 Decision Tree Classification & Regression
 
-## 📖 Overview
-A **Decision Tree** is a supervised learning algorithm that splits the dataset into smaller subsets based on feature values.  
-It can be used for:
-- **Classification** → Predict discrete labels.
-- **Regression** → Predict continuous values.
+A **Decision Tree** is a supervised learning algorithm used for **both** classification and regression tasks. It splits the dataset into subsets based on the most significant features, forming a tree-like structure where each node represents a decision.
 
 ---
 
-## ⚙ How it Works
+## 📌 What is a Decision Tree?
 
-### 1️⃣ Splitting Criteria
-At each node, the tree chooses the **best feature** and **split point** that maximizes information gain or minimizes impurity.
+- **Classification:** Predicts a **category** (e.g., spam or not spam).
+- **Regression:** Predicts a **continuous value** (e.g., house price).
 
----
-
-### **For Classification**
-We use impurity measures like:
-
-#### **Gini Impurity**
-$$
-Gini = 1 - \sum_{k=1}^K p_k^2
-$$
-Where:
-- \(p_k\) = proportion of samples of class \(k\) in the node  
-- \(K\) = number of classes
-
-#### **Entropy**
-$$
-Entropy = -\sum_{k=1}^K p_k \log_2 p_k
-$$
-
-#### **Information Gain**
-$$
-IG(D, feature) = Entropy(D) - \sum_{i=1}^m \frac{|D_i|}{|D|} Entropy(D_i)
-$$
+It works by asking a series of **yes/no questions** based on feature values and selecting the splits that **best reduce impurity**.
 
 ---
 
-### **For Regression**
-We use variance-based metrics:
+## ⚙ How does it work?
 
-#### **Mean Squared Error (MSE)**
+### Step 1: Feature Selection
+At each node, the algorithm chooses the **best feature** to split the data.  
+- For **classification**, it uses measures like **Gini Impurity** or **Entropy**.
+- For **regression**, it uses **Mean Squared Error (MSE)** or **Mean Absolute Error (MAE)**.
+
+---
+
+### Step 2: Splitting Criteria
+
+#### **Classification (Gini Impurity)**
+$$
+Gini = 1 - \sum_{i=1}^{C} p_i^2
+$$
+where \( p_i \) is the proportion of samples belonging to class \( i \).
+
+#### **Regression (Mean Squared Error)**
 $$
 MSE = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
 $$
 
-#### **Variance Reduction**
-$$
-VarianceReduction = Var(parent) - \left[ \frac{n_{left}}{n} Var(left) + \frac{n_{right}}{n} Var(right) \right]
-$$
+---
+
+### Step 3: Recursive Splitting
+The process repeats **recursively** until:
+- Maximum depth is reached.
+- Node is pure (all samples have the same class in classification).
+- Minimum number of samples per split is reached.
 
 ---
 
-## 🌿 Decision Rules
+## 🔍 Hyperparameters
 
-At each **internal node**:
-- Choose feature \(x_j\) and threshold \(t\) that give the **best split** according to the chosen metric.
-- Send samples left if \(x_j \leq t\), right if \(x_j > t\).
-
-At each **leaf node**:
-- **Classification** → Predict the majority class in the leaf.
-- **Regression** → Predict the average target value in the leaf.
-
----
-
-## 📉 Stopping Criteria
-The tree stops growing when:
-- Max depth reached
-- Minimum samples per node reached
-- No improvement in split metric
+| Parameter         | Description |
+|-------------------|-------------|
+| `criterion`       | Metric to measure split quality. `"gini"` or `"entropy"` for classification, `"mse"` or `"mae"` for regression. |
+| `max_depth`       | Maximum depth of the tree (controls overfitting). |
+| `min_samples_split` | Minimum samples needed to split a node. |
+| `min_samples_leaf` | Minimum samples needed at a leaf node. |
+| `random_state`    | Ensures reproducibility. |
 
 ---
 
-## 🔍 Advantages & Disadvantages
+## 🛠 Implementation in Python
 
-✅ **Pros**:
-- Easy to interpret & visualize  
-- Handles both classification & regression  
-- Works with numerical & categorical data  
+```python
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
-⚠ **Cons**:
-- Can overfit without pruning  
-- Sensitive to small data changes
+# Classification
+clf = DecisionTreeClassifier(criterion="gini", max_depth=5, random_state=42)
+clf.fit(X_train, y_train)
 
----
-
-## 📚 References
-- [Scikit-learn Decision Tree Documentation](https://scikit-learn.org/stable/modules/tree.html)
-- [CART Algorithm Paper](https://doi.org/10.1201/9781315139470)
-
+# Regression
+reg = DecisionTreeRegressor(criterion="mse", max_depth=5, random_state=42)
+reg.fit(X_train, y_train)
